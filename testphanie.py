@@ -1,5 +1,5 @@
 import unittest
-from life import *
+from butt import *
 
 class MyTest(unittest.TestCase):
     def test(self):
