@@ -50,6 +50,7 @@ class MyTest(unittest.TestCase):
     def test(self):
 #        self.assertEqual(4, 4)
         self.assertEqual(make_next_board(starting_board_0), ending_board_0)
+        self.assertEqual(make_next_board(starting_board_1), ending_board_1)
 
 
 if __name__ == '__main__':
