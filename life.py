@@ -19,6 +19,9 @@ pb = []
 wb = []
 
 def testing_worldgen():
+    global rb
+    global pb
+    global wb
     rb = [
     ['0', '0', '1', '1', '0', '1', '0', '0', '0', '0'],
     ['0', '0', '1', '1', '0', '0', '1', '0', '1', '0'],
@@ -42,8 +45,10 @@ def spawn_board(size, value):
     return board
 
 def print_board(the_board):
+    print ""
     for row in the_board:
         print " ".join(row)
+    print ""
 
 # takes an existing board and returns a copy of it, with an additional
 # row of 0's all around it
@@ -105,9 +110,10 @@ def main():
     # oh man! all the hard work of defining the functions is done!
     # now i just have to work out the order in which things play
     # out here in the main() function!
-    rb = []
-    pb = []
-    wb = []
+
+    global rb
+    global wb
+    global pb
 
     # we need to run an initial world setup to generate the boards.
     # this means initial conditions in rb, a padded rb livin in pb,
@@ -115,6 +121,7 @@ def main():
     testing_worldgen()
 
     # let's print the initial board condition
+    print "initial state"
     print_board(rb)
 
     # probably as long as there is at least one living cell, we 
@@ -126,6 +133,8 @@ def main():
     # (no? try saying the letters of the variable name out loud.)
     # (... 'while', 'y_l' ... they're almost homophones!)
 
+    track = 1
+    
     # TOP OF WHILE LOOP
     while y_l == True:
 
@@ -149,23 +158,25 @@ def main():
 
         # with our boards all updated, we should print the newly-made
         # reading board for the player, then let them appreciate it.
+        print "Generation %s:" % track
         print_board(rb)
-        time.sleep(3)
+        time.sleep(1)
     
         # we should now see if there are still living cells on the board
         # if so, let's set the variable y_l to True; otherwise,
         # it gets set to False. we'll hit the end of the while loop and
         # as long as y_l == True, we'll jump back to the start of
         # the while loop.
+        lives = 0
         for row in range(len(rb)):
             for col in range(len(rb[row])):
                 if rb[row][col] == '1':
-                    y_l = True
-                    break
-                else:
-                    y_l = False
-                break
-            break
+                    lives += 1
+        if lives > 0:
+            y_l = True
+            track += 1
+        else:
+            y_l = False
 
         # END OF WHILE LOOP
 
