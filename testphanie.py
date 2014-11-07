@@ -51,7 +51,8 @@ class MyTest(unittest.TestCase):
 #        self.assertEqual(4, 4)
         self.assertEqual(make_next_board(starting_board_0), ending_board_0)
         self.assertEqual(make_next_board(starting_board_1), ending_board_1)
-
+        self.assertEqual(make_next_board(starting_board_2), ending_board_2)
+        self.assertEqual(make_next_board(starting_board_3), ending_board_3)
 
 if __name__ == '__main__':
     unittest.main()
