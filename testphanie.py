@@ -1,22 +1,12 @@
 import unittest
 from butt import *
 
-class MyTest(unittest.TestCase):
-    def test(self):
-#        self.assertEqual(4, 4)
-        self.assertEqual(make_next_board(starting_board_0), ending_board_0)
-
-
-if __name__ == '__main__':
-    unittest.main()
-
 
 starting_board_0 = [
     ['1','0','0'],
     ['0','1','0'],
     ['0','0','1']
 ]
-
 starting_board_1 = [
     ['1','0','1'],
     ['0','1','0'],
@@ -54,4 +44,14 @@ ending_board_3 = [
     ['0','0','0'],
     ['0','0','0']
 ]
+
+
+class MyTest(unittest.TestCase):
+    def test(self):
+#        self.assertEqual(4, 4)
+        self.assertEqual(make_next_board(starting_board_0), ending_board_0)
+
+
+if __name__ == '__main__':
+    unittest.main()
 
